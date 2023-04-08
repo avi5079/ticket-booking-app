@@ -11,18 +11,37 @@ class BottomBar extends StatefulWidget {
 }
 
 class _BottomBarState extends State<BottomBar> {
+  int _selectedIndex = 0;
+  static final List<Widget> _widgetOptions = <Widget>[
+    const Text("Home"),
+    const Text("Search"),
+    const Text("Tickets"),
+    const Text("Profile"),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("My Tickets"),
       ),
-      body: const Center(child: Text("My body")),
+      body: Center(
+        child: _widgetOptions[_selectedIndex],
+      ),
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
         elevation: 10,
         showSelectedLabels: false,
         showUnselectedLabels: false,
         selectedItemColor: Colors.blueGrey,
+        type: BottomNavigationBarType.fixed,
         unselectedItemColor: const Color(0xFF526480),
         items: const [
           BottomNavigationBarItem(
@@ -50,5 +69,5 @@ class _BottomBarState extends State<BottomBar> {
 
 // Scaffold gives like a skeleton
 // when we use a scaffold the colors shows up on the screen
-// BottomNavigationBar takes a List<BottomNavigationBarItem> not any kind of itme
+// BottomNavigationBar takes a List<BottomNavigationBarItem> not any kind of item
 
