@@ -20,9 +20,9 @@ class TicketView extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                  decoration: const BoxDecoration(
-                    color: Color(0xFF526799),
-                    borderRadius: BorderRadius.only(
+                  decoration: BoxDecoration(
+                    color: Styles.darkBlueColor,
+                    borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(21),
                         topRight: Radius.circular(21)),
                   ),
@@ -46,9 +46,6 @@ class TicketView extends StatelessWidget {
                                 child: LayoutBuilder(
                                   builder: (BuildContext context,
                                       BoxConstraints constraints) {
-                                    // ignore: avoid_print
-                                    print(
-                                        "The width is ${constraints.constrainWidth()}");
                                     return Flex(
                                       direction: Axis.horizontal,
                                       mainAxisAlignment:
@@ -103,7 +100,108 @@ class TicketView extends StatelessWidget {
                         ],
                       )
                     ],
-                  ))
+                  )),
+              Container(
+                  color: Styles.orangeColor,
+                  child: Row(
+                    children: [
+                      const SizedBox(
+                          height: 20,
+                          width: 10,
+                          child: DecoratedBox(
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(10),
+                                    bottomRight: Radius.circular(10),
+                                  )))),
+                      Expanded(
+                          child: Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: LayoutBuilder(builder: (BuildContext context,
+                            BoxConstraints boxConstraints) {
+                          return Flex(
+                            direction: Axis.horizontal,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisSize: MainAxisSize.max,
+                            children: List.generate(
+                                (boxConstraints.constrainWidth() / 15).floor(),
+                                (index) => const SizedBox(
+                                      width: 5,
+                                      height: 1,
+                                      child: DecoratedBox(
+                                          decoration: BoxDecoration(
+                                              color: Colors.white)),
+                                    )),
+                          );
+                        }),
+                      )),
+                      const SizedBox(
+                          height: 20,
+                          width: 10,
+                          child: DecoratedBox(
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(10),
+                                    bottomLeft: Radius.circular(10),
+                                  ))))
+                    ],
+                  )),
+              Container(
+                  decoration: BoxDecoration(
+                    color: Styles.orangeColor,
+                    borderRadius: const BorderRadius.only(
+                        bottomLeft: Radius.circular(21),
+                        bottomRight: Radius.circular(21)),
+                  ),
+                  padding: const EdgeInsets.only(
+                      left: 16, top: 10, right: 16, bottom: 16),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("1 MAY",
+                                  style: Styles.headLineStyle3
+                                      .copyWith(color: Colors.white)),
+                              const Gap(5),
+                              Text("Date",
+                                  style: Styles.headLineStyle3
+                                      .copyWith(color: Colors.white)),
+                            ],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text("08:00 AM",
+                                  style: Styles.headLineStyle3
+                                      .copyWith(color: Colors.white)),
+                              const Gap(5),
+                              Text("Depature time",
+                                  style: Styles.headLineStyle3
+                                      .copyWith(color: Colors.white)),
+                            ],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Text("23",
+                                  style: Styles.headLineStyle3
+                                      .copyWith(color: Colors.white)),
+                              const Gap(5),
+                              Text("Number",
+                                  style: Styles.headLineStyle3
+                                      .copyWith(color: Colors.white)),
+                            ],
+                          ),
+                        ],
+                      )
+                    ],
+                  )),
             ],
           ),
         ));
