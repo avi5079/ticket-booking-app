@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:ticket_booking_app/utils/app_styles.dart';
@@ -12,11 +12,12 @@ class TicketView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(context);
+    // print(size.height);
     return SizedBox(
-        width: size.width,
-        height: size.height,
+        width: size.width * 0.85,
+        height: 200,
         child: Container(
-          margin: const EdgeInsets.only(left: 16),
+          margin: const EdgeInsets.only(right: 16),
           child: Column(
             children: [
               Container(
