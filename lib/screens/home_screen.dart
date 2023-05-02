@@ -118,6 +118,7 @@ class HomeScreen extends StatelessWidget {
             child: Row(
               children: const [
                 HotelScreen(),
+                HotelScreen(),
               ],
             )),
       ]),
