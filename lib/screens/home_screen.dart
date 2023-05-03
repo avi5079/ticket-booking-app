@@ -5,6 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:ticket_booking_app/screens/hotel_screen.dart';
 import 'package:ticket_booking_app/screens/ticket_view.dart';
 import 'package:ticket_booking_app/utils/app_info_list.dart';
+import 'package:ticket_booking_app/widgets/double_text_widget.dart';
 
 import '../utils/app_layout.dart';
 import '../utils/app_styles.dart';
@@ -71,22 +72,8 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               Gap(AppLayout.getHeight(40)),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Upcoming Flights", style: Styles.headLineStyle2),
-                  InkWell(
-                    onTap: () {
-                      // print("You are tapped");
-                    },
-                    child: Text(
-                      "View all",
-                      style:
-                          Styles.textStyle.copyWith(color: Styles.primaryColor),
-                    ),
-                  )
-                ],
-              )
+              const AppDoubleTextWidget(
+                  bigText: "Upcoming Flights", smallText: "View all")
             ])),
         Gap(AppLayout.getHeight(15)),
         SingleChildScrollView(
@@ -100,19 +87,8 @@ class HomeScreen extends StatelessWidget {
         Gap(AppLayout.getHeight(15)),
         Container(
           padding: EdgeInsets.symmetric(horizontal: AppLayout.getWidth(20)),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("Hotels", style: Styles.headLineStyle2),
-              InkWell(
-                onTap: () {},
-                child: Text(
-                  "View all",
-                  style: Styles.textStyle.copyWith(color: Styles.primaryColor),
-                ),
-              )
-            ],
-          ),
+          child: const AppDoubleTextWidget(
+              bigText: "Hotels", smallText: "View all"),
         ),
         Gap(AppLayout.getHeight(15)),
         SingleChildScrollView(
