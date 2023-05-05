@@ -112,7 +112,8 @@ class TicketScreen extends StatelessWidget {
                           const AppColumnLayout(
                               firstText: "\$249.99",
                               secondText: "Price",
-                              alignment: CrossAxisAlignment.end)
+                              alignment: CrossAxisAlignment.end,
+                              isColor: false)
                         ],
                       ),
                       const SizedBox(height: 1),
@@ -130,8 +131,8 @@ class TicketScreen extends StatelessWidget {
                       left: AppLayout.getWidth(15),
                       right: AppLayout.getWidth(15)),
                   padding: EdgeInsets.only(
-                      top: AppLayout.getWidth(15),
-                      bottom: AppLayout.getWidth(15)),
+                      top: AppLayout.getWidth(20),
+                      bottom: AppLayout.getWidth(20)),
                   child: Container(
                     padding: EdgeInsets.symmetric(
                         horizontal: AppLayout.getHeight(15)),
@@ -147,7 +148,12 @@ class TicketScreen extends StatelessWidget {
                           height: 70),
                     ),
                   ),
-                )
+                ),
+                Gap(AppLayout.getHeight(20)),
+                Container(
+                  padding: EdgeInsets.only(left: AppLayout.getHeight(15)),
+                  child: TicketView(ticket: ticketList[0]),
+                ),
               ]),
         ]));
   }

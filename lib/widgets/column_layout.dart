@@ -19,12 +19,12 @@ class AppColumnLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: alignment, children: [
       Text(firstText,
-          style: isColor == true
+          style: isColor == null
               ? Styles.headLineStyle3.copyWith(color: Colors.white)
               : Styles.headLineStyle3),
       Gap(AppLayout.getHeight(5)),
       Text(secondText,
-          style: isColor == true
+          style: isColor == null
               ? Styles.headLineStyle4.copyWith(color: Colors.white)
               : Styles.headLineStyle4),
     ]);
