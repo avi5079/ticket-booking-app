@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:ticket_booking_app/screens/ticket_view.dart';
 import 'package:ticket_booking_app/widgets/column_layout.dart';
 import 'package:ticket_booking_app/widgets/layout_builder_widget.dart';
+import 'package:barcode_widget/barcode_widget.dart';
 
 import '../utils/app_info_list.dart';
 import '../utils/app_layout.dart';
@@ -116,6 +117,37 @@ class TicketScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 1),
                     ])),
+                /* Bar code */
+                const SizedBox(height: 1),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          bottomRight: Radius.circular(AppLayout.getWidth(21)),
+                          bottomLeft:
+                              Radius.circular(AppLayout.getHeight(21)))),
+                  margin: EdgeInsets.only(
+                      left: AppLayout.getWidth(15),
+                      right: AppLayout.getWidth(15)),
+                  padding: EdgeInsets.only(
+                      top: AppLayout.getWidth(15),
+                      bottom: AppLayout.getWidth(15)),
+                  child: Container(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: AppLayout.getHeight(15)),
+                    child: ClipRRect(
+                      borderRadius:
+                          BorderRadius.circular(AppLayout.getHeight(15)),
+                      child: BarcodeWidget(
+                          barcode: Barcode.code128(),
+                          data: 'https://github.com/martinovovo',
+                          drawText: false,
+                          color: Styles.textColor,
+                          width: double.infinity,
+                          height: 70),
+                    ),
+                  ),
+                )
               ]),
         ]));
   }
